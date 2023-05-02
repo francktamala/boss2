@@ -1,0 +1,151 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Services | Blue Ocean Security Services</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+    <!-- CSS
+	============================================ -->
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/css/plugins.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <script type="text/javascript" src="assets/js/data.js"></script>
+
+</head>
+
+<body>
+
+    <script src="assets/js/header.js"></script>
+
+    <!-- Header -->
+    <my-header></my-header>
+    <!--// Header -->
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-area bg-image section-ptb dark-bg"
+        style="background-image: url(assets/images/bg/breadcrumb-bg.jpg)">
+        <div class="container">
+            <div class="row breadcrumb">
+                <div class="col">
+                    <div style="position: relative; z-index: 12;">
+                        <h2>Services</h2>
+                    </div>
+                    <!-- breadcrumb-list start -->
+                    <ul class="breadcrumb-list">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">Service</li>
+                    </ul>
+                    <!-- breadcrumb-list end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Breadcrumb -->
+
+    <!-- Page Conttent -->
+    <main class="page-content">
+
+        <!-- Start Service Style-->
+        <div class="section-service bg-gray section-pt section-pb-90">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center">
+                            <h2>Our Services</h2>
+                            <p>The approved contractor of Security Guard services, providing quality security services
+                                to many organizations & private companies</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="listContainer">
+                    <!-- Generating Services Cards -->
+                    <script>
+                        (function generateServices() {
+                            let txtData = "";
+
+                            for (let key in list) {
+                                let title = list[key].title;
+                                let data = list[key].data;
+
+                                let text = `
+                                <br />
+                                <hr />
+                                <br />
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="section-title text-center">
+                                            <h2 style="font-size: 1.5rem">` + title + `</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                `
+                                data.map((d, index) => {
+                                    const name = d.name.toUpperCase();
+                                    text += `
+                                    <div class="col-lg-4 col-md-6 col-12" style="margin-bottom: 30px">
+                                        <!-- Start Single Service -->
+                                        <div class="service text-center service-2 padding-none cleaning-service mb-30" style="height: 100%;">
+                                            <div class="thumb">
+                                                <a href="#" style="max-height:224px;">
+                                                    <img style="height: 100%; width: auto;" src="`+ d.img + `" alt="service img">
+                                                </a>
+                                            </div>
+                                            <div class="content">
+                                                <h4 style="font-size: 1rem; font-weight: bold;"><a href="#">`+ name + `</a></h4>
+                                                <p>`+ (d.desc.length > 100 ? d.desc.slice(0, 100) + '...' : d.desc) + `</p>
+                                                <a style="font-size: 0.8rem;" class="readmore_btn btn-transparent" href="` + (d.desc.length > 0 ? "#" : "contact-us.html") +`">` + (d.desc.length > 0 ? "READ MORE" : "ENQUIRE") +`</a>
+                                            </div>
+                                        </div>
+                                        <!-- End Single Service -->
+                                    </div>
+                                    `
+                                })
+                                text += "</div>";
+                                txtData += text;
+                            }
+
+                            let div = document.getElementById('listContainer')
+                            div.innerHTML = txtData;
+
+                        })();
+                    </script>
+                    <!-- End of generation -->
+                </div>
+            </div>
+        </div>
+        <!-- End Service Style-->
+
+
+    </main>
+    <!--// Page Conttent -->
+
+    <!-- Footer -->
+    <my-footer></my-footer>
+    <!--// Footer -->
+
+
+    <!-- JS
+============================================ -->
+
+    <!-- Plugins JS -->
+    <script src="assets/js/plugins.js"></script>
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
+
+</body>
+
+</html>
